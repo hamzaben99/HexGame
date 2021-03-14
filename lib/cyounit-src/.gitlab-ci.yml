@@ -1,0 +1,87 @@
+stages:
+  - docker
+  - build
+  - test
+  - deploy
+
+doxygen image:
+  stage: docker
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/docker/doxygen.dockerfile --destination $CI_REGISTRY_IMAGE/doxygen:$CI_COMMIT_SHORT_SHA
+    - sleep 10
+
+generate documentation:
+  stage: build
+  image: $CI_REGISTRY_IMAGE/doxygen:$CI_COMMIT_SHORT_SHA
+  script:
+    - doxygen Doxyfile
+  artifacts:
+    paths:
+      - doc/html
+      - doc/latex
+      - doc/man
+    expire_in: 30 days
+    expose_as: Documentation
+
+cmake image:
+  stage: docker
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/docker/cmake.dockerfile --destination $CI_REGISTRY_IMAGE/cmake:$CI_COMMIT_SHORT_SHA
+    - sleep 10
+
+build library:
+  stage: build
+  image: $CI_REGISTRY_IMAGE/cmake:$CI_COMMIT_SHORT_SHA
+  script:
+    - mkdir -p build result && cd build
+    - cmake ..
+    - make cyounit
+    - cd ..
+    - cp build/src/libcyounit.so result/
+    - cp include/cyounit.h result/
+  artifacts:
+    paths:
+      - result
+    expire_in: 30 days
+    expose_as: Unix Library SO
+
+test library:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/cmake:$CI_COMMIT_SHORT_SHA
+  script:
+    - mkdir -p build && cd build
+    - cmake ..
+    - make cyounit-test
+  dependencies:
+    - build library
+
+
+telegram:
+  stage: deploy
+  image: registry.gitlab.com/clovis-ai/dotfiles
+  script:
+    - git changelog --format telegram-html --since yesterday >chlog
+    - announce-telegram chlog "$CHAT_IDS"
+  only:
+    - master
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r doc/html/ public/
+  artifacts:
+    paths:
+      - public
+  dependencies:
+    - generate documentation
+  only:
+    - master

@@ -1,0 +1,36 @@
+\BOOKMARK [1][-]{section.1}{Pr\351sentation du sujet}{}% 1
+\BOOKMARK [1][-]{section.2}{Organisation de l'\351quipe}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{R\351partition des t\342ches}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Communication}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Utilisation de Git}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Conception}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Organisation des fichiers et compilation}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Organisation des fichiers.}{subsection.3.1}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Compilation}{subsection.3.1}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Ex\351cution du programme}{subsection.3.1}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Conception des joueurs}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Restrictions sur les joueurs}{subsection.3.2}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Chargement dynamique des joueurs}{subsection.3.2}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Repr\351sentation du plateau de jeu}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Solutions algorithmiques}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Serveur de jeu}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Initialisation du jeu}{subsection.4.1}% 17
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Boucle principale}{subsection.4.1}% 18
+\BOOKMARK [3][-]{subsubsection.4.1.3}{V\351rification du vainqueur}{subsection.4.1}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Le premier joueur}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.3}{TAD ensemble}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.4}{Biblioth\350que de test}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.5}{Interface Graphique}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.6}{Connex Player}{section.4}% 24
+\BOOKMARK [3][-]{subsubsection.4.6.1}{Arbre des plus court chemins pond\351r\351s}{subsection.4.6}% 25
+\BOOKMARK [3][-]{subsubsection.4.6.2}{Algorithmes des plus courts chemins}{subsection.4.6}% 26
+\BOOKMARK [3][-]{subsubsection.4.6.3}{Extraction du plus court chemin entre les deux bords}{subsection.4.6}% 27
+\BOOKMARK [3][-]{subsubsection.4.6.4}{D\351fauts de la strat\351gie}{subsection.4.6}% 28
+\BOOKMARK [2][-]{subsection.4.7}{Minimax Player}{section.4}% 29
+\BOOKMARK [3][-]{subsubsection.4.7.1}{Explication de la strat\351gie}{subsection.4.7}% 30
+\BOOKMARK [3][-]{subsubsection.4.7.2}{D\351faut de la strat\351gie}{subsection.4.7}% 31
+\BOOKMARK [2][-]{subsection.4.8}{Heuristique de Kirchhoff}{section.4}% 32
+\BOOKMARK [1][-]{section.5}{Critiques}{}% 33
+\BOOKMARK [2][-]{subsection.5.1}{Manque de ma\356trise du Kanban}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.2}{Manque de documentation}{section.5}% 35
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 36

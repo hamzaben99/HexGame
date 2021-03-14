@@ -1,0 +1,19 @@
+# CMake files
+cmake-build-debug/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# Artifacts
+libcyounit.so
+/install
+
+# CI Artifacts
+build/
+result/
+
+# Doxygen files
+doc/html
+doc/latex
+doc/man

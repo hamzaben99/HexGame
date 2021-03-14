@@ -1,0 +1,11 @@
+# Default ignored files
+/workspace.xml
+/deployment.xml
+/dictionaries
+
+# Files generated via CMake import
+/cyounit.iml
+/modules.xml
+
+# Local files
+/vcs.xml
